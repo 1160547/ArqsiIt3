@@ -1,0 +1,14 @@
+<div *ngIf="acabamento">
+  <h2>{{acabamento.nome.nome}} Details</h2>
+  <div><span>id: </span>{{acabamento.id}}</div>
+  <div>
+    <label>
+      nome:
+      <input [(ngModel)]="acabamento.nome.nome" placeholder="nome" />
+    </label>
+    <label>
+      descricao:
+      <input [(ngModel)]="acabamento.descricao.descricao" placeholder="descricao" />
+    </label>
+  </div>
+</div>

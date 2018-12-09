@@ -1,0 +1,18 @@
+<div *ngIf="material">
+  <h2>{{material.nome.nome}} Details</h2>
+  <div>
+    <label>
+      name:
+      <input placeholder="{{material.nome.nome}}" readonly/>
+
+    </label>
+  </div>
+  <div>
+    <label>
+      Acabamento:
+
+      <input placeholder="{{material.materialAcabamentos[0].acabamentoId}}" readonly/>
+
+    </label>
+  </div>
+</div>

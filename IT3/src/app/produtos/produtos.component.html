@@ -1,0 +1,43 @@
+<h2>Os Meus Produtos</h2>
+ <!--
+<div>
+  <label>Prduct name:
+    <input #produtoName />
+  </label>
+  (click) passes input value to add() and then clears the input 
+  <button (click)="add(produtoName.value); produtoName.value=''">
+    add
+  </button>
+</div>-->
+
+<ul class="produtos">
+  <li *ngFor="let produto of produtos">
+    <a
+      [class.selected]="produto === produtos"
+      (click)="onSelect(produto)">
+    {{produto.nome.nome}}
+</a>
+    <br />
+    <button class="delete" title="delete produto"
+      (click)="delete(produto)">x</button>
+  </li>
+</ul>
+
+
+<app-produto-detail [produto]="selectedProduto" [listaMateriais]="listaMateriaisProduto" [listaAcabamentos]="listaAcabamentosMaterial"></app-produto-detail>
+
+
+<div>
+    <h2>Criar Produto</h2>
+    <div>
+      <label>
+        <input #nomeProdutoCriar matInput placeholder="Nome">
+      </label>
+    </div>
+  
+    <button mat-button (click)="add(nomeProdutoCriar.value); nomeProdutoCriar.value='';">
+      Criar
+    </button>
+  </div>
+
+

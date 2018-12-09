@@ -1,0 +1,44 @@
+<h2>My acabamentos</h2>
+<ul class="acabamentos">
+  <li *ngFor="let acabamento of acabamentos"
+      [class.selected]="acabamento === selectedAcabamento"
+      (click)="onSelect(acabamento)">
+     {{acabamento.nome.nome}}
+  </li>
+</ul>
+<app-acabamento-detail [acabamento]="selectedAcabamento"></app-acabamento-detail>
+<button mat-raised-button (click)="estadoCriarAcabamento()">Criar Acabamento</button>
+<button mat-raised-button (click)="estadoEditarAcabamento()">Editar Acabamento</button>
+
+<div *ngIf="estadoCriarAcabamento">
+  <h2>Criar Acabamento</h2>
+  <div>
+    <label>
+      <input #nomeAcabamentoCriar matInput placeholder="Nome">
+    </label>
+  </div>
+
+  <label>
+      <input #descricaoAcabamentoCriar matInput placeholder="Descricao">
+  </label>
+
+  <button mat-button (click)="adicionarAcabamento(nomeAcabamentoCriar.value,descricaoAcabamentoCriar.value); nomeAcabamentoCriar.value='';descricaoAcabamentoCriar.value='';">
+    Criar
+  </button>
+</div>
+
+<div *ngIf="estadoEditarAcabamento">
+  <h2>Editar Material </h2>
+
+  <label>
+
+    <input #editarNomeAcabamento [(ngModel)]="nomeAcabamentoEditar" matInput placeholder="Novo nome">
+
+  </label>
+  <label>
+    <input #editarDescricaoAcabamento [(ngModel)]="descricaoAcabamentoEditar" matInput placeholder="Nova Descricao">
+  </label>
+
+
+  <button mat-button (click)=atualizarAcabamento()>Editar Acabamento</button>
+</div>

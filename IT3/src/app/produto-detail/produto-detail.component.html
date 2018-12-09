@@ -1,0 +1,78 @@
+<div *ngIf="produto">
+  <h2>{{produto.nome.nome}} Details</h2>
+  <div>
+    <label>
+      Name:
+      <input placeholder="{{produto.nome.nome}}" readonly />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Categoria:
+      <input placeholder="{{produto.categoria.nome.nome}}" readonly />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Dimensao:
+      <br />
+      Altura:
+      <br />
+      Valor Min:
+      <input placeholder="{{produto.dimensao.altura.valorMin}}" readonly />
+      <br />
+      Valor Max:
+      <input placeholder="{{produto.dimensao.altura.valorMax}}" readonly />
+      <br />
+      Largura:
+      <br />
+      Valor Min:
+
+      <br />
+      Valor Max:
+      <input placeholder="{{produto.dimensao.largura.valorMax}}" readonly />
+      <br />
+      Profundidade:
+      <br />
+      Valor Min:
+      <input placeholder="{{produto.dimensao.profundidade.valorMax}}" readonly />
+      <br />
+      Valor Max:
+      <input placeholder="{{produto.dimensao.profundidade.valorMax}}" readonly />
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Restricao:
+      <br />
+      Valor Min:
+      <input placeholder="{{produto.restricao.valorMin}}" readonly />
+      <br />
+      Valor Max:
+      <input placeholder="{{produto.restricao.valorMax}}" readonly />
+      <br />
+      Mesmo Material:
+      <input placeholder="{{produto.restricao.mesmoMaterialAcabamento}}" readonly />
+    </label>
+  </div>
+  Lista de Materiais:
+    <ul>
+      <li *ngFor="let material of listaMateriais">
+        {{ material.nome.nome }}
+        <br />
+        Lista de Acabamentos do Material {{ material.nome.nome }}:
+        <ul>
+          <li *ngFor="let acabamento of listaAcabamentos">
+            {{ acabamento.nome.nome }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  
+
+</div>
+

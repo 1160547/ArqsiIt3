@@ -1,0 +1,33 @@
+<h2>My Materiais</h2>
+<ul class="materiais">
+  <li *ngFor="let material of materiais"
+      [class.selected]="material === selectedMaterial"
+      (click)="onSelect(material)">
+    {{material.nome.nome}}
+  </li>
+</ul>
+<app-material-detail [material]="selectedMaterial"></app-material-detail>
+<button mat-raised-button (click)="estadoCriarMaterial()">Criar Material</button>
+<button mat-raised-button (click)="estadoEditarMaterial()">Editar Material</button>
+
+<div *ngIf="estadoCriarMaterial">
+  <h2>Criar Material</h2>
+  <div>
+    <label>
+      <input #nomeMaterialCriar matInput placeholder="Nome">
+    </label>
+  </div>
+ 
+  <button mat-button (click)="adicionarMaterial(nomeMaterialCriar.value); nomeMaterialCriar.value='';">
+    Criar
+  </button>
+</div>
+
+<div *ngIf="estadoEditarMaterial">
+  <h2>Editar Material </h2>
+  <label>
+    <input #editarNomeMaterial [(ngModel)]="nomeMaterialEditar" matInput placeholder="Novo nome">
+  </label>
+ 
+  <button mat-button (click)=atualizarMaterial()>Editar Material</button>
+</div>
